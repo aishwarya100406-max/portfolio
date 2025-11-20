@@ -94,7 +94,7 @@
         font-weight: 600;
     }
 
-    /* ---------- MATHEMATICS HOVER COLORS ---------- */
+    /* ---------- MATHEMATICS COLORS ---------- */
     .math1:hover { color: cyan; transform: scale(1.4); }
     .math2:hover { color: orange; transform: scale(1.4); }
     .math3:hover { color: yellow; transform: scale(1.4); }
@@ -141,17 +141,17 @@
 </head>
 <body>
 
-<!-- NAME WITH SOUND -->
+<!-- NAME WITH SOFT SOUNDS -->
 <h1 class="name" id="nameTitle">
-    <span data-sound="bright1.mp3">A</span>
-    <span data-sound="bright2.mp3">i</span>
-    <span data-sound="bright3.mp3">s</span>
-    <span data-sound="bright4.mp3">h</span>
-    <span data-sound="bright5.mp3">w</span>
-    <span data-sound="bright6.mp3">a</span>
-    <span data-sound="bright7.mp3">r</span>
-    <span data-sound="bright8.mp3">y</span>
-    <span data-sound="bright9.mp3">a</span>
+    <span data-sound="soft_fairy1.mp3">A</span>
+    <span data-sound="soft_fairy2.mp3">i</span>
+    <span data-sound="soft_fairy3.mp3">s</span>
+    <span data-sound="soft_fairy4.mp3">h</span>
+    <span data-sound="soft_fairy5.mp3">w</span>
+    <span data-sound="soft_fairy6.mp3">a</span>
+    <span data-sound="soft_fairy7.mp3">r</span>
+    <span data-sound="soft_fairy8.mp3">y</span>
+    <span data-sound="soft_fairy9.mp3">a</span>
 </h1>
 
 <!-- SKILLS -->
@@ -160,9 +160,7 @@
 
     <div class="skills-container">
 
-        <!-- MATHEMATICS -->
         <div class="skill-box" onclick="toggleMath()">Mathematics</div>
-
         <ul id="mathList" class="sublist">
             <li class="math1">Equations</li>
             <li class="math2">Differential Math</li>
@@ -171,9 +169,7 @@
             <li class="math5">Complex Variables</li>
         </ul>
 
-        <!-- CODING -->
         <div class="skill-box" onclick="toggleCode()">Coding</div>
-
         <ul id="codeList" class="sublist">
             <li class="code1">Java</li>
             <li class="code2">C++</li>
@@ -203,11 +199,11 @@
         list.style.display = (list.style.display === "block") ? "none" : "block";
     }
 
-    /* Play sound on letter hover */
+    /* Play soft sound on letter hover */
     document.querySelectorAll(".name span").forEach(letter => {
         letter.addEventListener("mouseenter", () => {
-            const soundFile = letter.dataset.sound;
-            const audio = new Audio(soundFile);
+            const sound = letter.dataset.sound;
+            const audio = new Audio(sound);
             audio.volume = 1.0;
             audio.play();
         });
