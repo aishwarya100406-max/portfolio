@@ -29,7 +29,7 @@
     .name span {
         display: inline-block;
         transition: 0.3s;
-        cursor: default;
+        cursor: pointer;
     }
 
     .name span:hover {
@@ -79,7 +79,7 @@
         100% { transform: translateY(0); }
     }
 
-    /* ---------- SUBLISTS (HIDDEN INITIALLY) ---------- */
+    /* ---------- SUBLISTS ---------- */
     .sublist {
         display: none;
         margin-top: 20px;
@@ -101,12 +101,12 @@
     .math4:hover { color: black; transform: scale(1.4); }
     .math5:hover { color: lime; transform: scale(1.4); }
 
-    /* ---------- CODING (HOVER SHRINK) ---------- */
+    /* ---------- CODING SHRINK ---------- */
     .code1:hover { color: pink; transform: scale(0.75); }
     .code2:hover { color: lime; transform: scale(0.75); }
     .code3:hover { color: cyan; transform: scale(0.75); }
 
-    /* ---------- CONTACT SECTION ---------- */
+    /* ---------- CONTACT ---------- */
     #contact {
         margin-top: 120px;
         padding-bottom: 80px;
@@ -141,9 +141,17 @@
 </head>
 <body>
 
-<!-- NAME -->
-<h1 class="name">
-    <span>A</span><span>i</span><span>s</span><span>h</span><span>w</span><span>a</span><span>r</span><span>y</span><span>a</span>
+<!-- NAME WITH SOUND -->
+<h1 class="name" id="nameTitle">
+    <span data-sound="bright1.mp3">A</span>
+    <span data-sound="bright2.mp3">i</span>
+    <span data-sound="bright3.mp3">s</span>
+    <span data-sound="bright4.mp3">h</span>
+    <span data-sound="bright5.mp3">w</span>
+    <span data-sound="bright6.mp3">a</span>
+    <span data-sound="bright7.mp3">r</span>
+    <span data-sound="bright8.mp3">y</span>
+    <span data-sound="bright9.mp3">a</span>
 </h1>
 
 <!-- SKILLS -->
@@ -184,6 +192,7 @@
 </section>
 
 <script>
+    /* Toggle lists */
     function toggleMath() {
         let list = document.getElementById("mathList");
         list.style.display = (list.style.display === "block") ? "none" : "block";
@@ -193,6 +202,16 @@
         let list = document.getElementById("codeList");
         list.style.display = (list.style.display === "block") ? "none" : "block";
     }
+
+    /* Play sound on letter hover */
+    document.querySelectorAll(".name span").forEach(letter => {
+        letter.addEventListener("mouseenter", () => {
+            const soundFile = letter.dataset.sound;
+            const audio = new Audio(soundFile);
+            audio.volume = 1.0;
+            audio.play();
+        });
+    });
 </script>
 
 </body>
