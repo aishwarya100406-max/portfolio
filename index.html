@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aishwarya | Portfolio</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -18,18 +18,18 @@
         overflow-x: hidden;
     }
 
-    /* ---------- HERO / NAME SECTION ---------- */
+    /* ---------- NAME SECTION ---------- */
     .name {
         font-size: 60px;
         margin-top: 80px;
         letter-spacing: 3px;
         font-weight: 600;
-        cursor: default;
     }
 
     .name span {
         display: inline-block;
         transition: 0.3s;
+        cursor: default;
     }
 
     .name span:hover {
@@ -39,13 +39,9 @@
     }
 
     /* ---------- SKILLS SECTION ---------- */
-    #skills {
-        margin-top: 100px;
-    }
-
     #skills h2 {
         font-size: 45px;
-        margin-bottom: 20px;
+        margin-top: 100px;
         text-shadow: 0px 0px 15px #fff;
     }
 
@@ -66,6 +62,7 @@
         font-weight: bold;
         backdrop-filter: blur(10px);
         transition: 0.4s;
+        cursor: pointer;
         box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.3);
         animation: float 3s infinite ease-in-out;
     }
@@ -81,6 +78,33 @@
         50% { transform: translateY(-12px); }
         100% { transform: translateY(0); }
     }
+
+    /* ---------- SUBLISTS (HIDDEN INITIALLY) ---------- */
+    .sublist {
+        display: none;
+        margin-top: 20px;
+        list-style: none;
+        padding: 0;
+    }
+
+    .sublist li {
+        font-size: 22px;
+        margin: 10px 0;
+        transition: 0.4s;
+        font-weight: 600;
+    }
+
+    /* ---------- MATHEMATICS HOVER COLORS ---------- */
+    .math1:hover { color: cyan; transform: scale(1.4); }
+    .math2:hover { color: orange; transform: scale(1.4); }
+    .math3:hover { color: yellow; transform: scale(1.4); }
+    .math4:hover { color: black; transform: scale(1.4); }
+    .math5:hover { color: lime; transform: scale(1.4); }
+
+    /* ---------- CODING (HOVER SHRINK) ---------- */
+    .code1:hover { color: pink; transform: scale(0.75); }
+    .code2:hover { color: lime; transform: scale(0.75); }
+    .code3:hover { color: cyan; transform: scale(0.75); }
 
     /* ---------- CONTACT SECTION ---------- */
     #contact {
@@ -117,27 +141,59 @@
 </head>
 <body>
 
-<!-- NAME SECTION -->
+<!-- NAME -->
 <h1 class="name">
     <span>A</span><span>i</span><span>s</span><span>h</span><span>w</span><span>a</span><span>r</span><span>y</span><span>a</span>
 </h1>
 
-<!-- SKILLS SECTION -->
+<!-- SKILLS -->
 <section id="skills">
     <h2>Skills</h2>
+
     <div class="skills-container">
-        <div class="skill-box">Mathematics</div>
-        <div class="skill-box">Coding</div>
+
+        <!-- MATHEMATICS -->
+        <div class="skill-box" onclick="toggleMath()">Mathematics</div>
+
+        <ul id="mathList" class="sublist">
+            <li class="math1">Equations</li>
+            <li class="math2">Differential Math</li>
+            <li class="math3">Calculus</li>
+            <li class="math4">3-D Vectors</li>
+            <li class="math5">Complex Variables</li>
+        </ul>
+
+        <!-- CODING -->
+        <div class="skill-box" onclick="toggleCode()">Coding</div>
+
+        <ul id="codeList" class="sublist">
+            <li class="code1">Java</li>
+            <li class="code2">C++</li>
+            <li class="code3">Python</li>
+        </ul>
+
     </div>
 </section>
 
-<!-- CONTACT SECTION -->
+<!-- CONTACT -->
 <section id="contact">
     <h2>Contact Me</h2>
     <a href="mailto:aishwarya100406@gmail.com" class="email-box">
         ✉ aishwarya100406@gmail.com
     </a>
 </section>
+
+<script>
+    function toggleMath() {
+        let list = document.getElementById("mathList");
+        list.style.display = (list.style.display === "block") ? "none" : "block";
+    }
+
+    function toggleCode() {
+        let list = document.getElementById("codeList");
+        list.style.display = (list.style.display === "block") ? "none" : "block";
+    }
+</script>
 
 </body>
 </html>
